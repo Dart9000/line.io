@@ -10,7 +10,8 @@ const passport = require('passport');
 
 // Routers
 const indexRouter = require("./routes/index");
-
+const authRouter = require("./routes/auth");
+const queueRouter = require("./routes/queue");
 
 const app = express();
 
@@ -35,7 +36,8 @@ mongoose.set('useCreateIndex', true);
 
 // Using Routes
 app.use("/", indexRouter);
-
+app.use("/auth", authRouter);
+app.use("/queue", queueRouter);
 
 
 app.listen(process.env.PORT || 3000, () => {
